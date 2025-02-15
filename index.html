@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-top: 0;
+        }
+        code {
+            background: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the mAnswer Service</h1>
+        <p>This service allows you to receive Proxmox automatic installation file based on the host interface MAC address.</p>
+        <h2>How to Use</h2>
+        <p>To use this service, send a <code>POST</code> request to the <code>/answer</code> endpoint with a JSON payload. The JSON payload should include network interface data. When automated installation is ongoing, Proxmox installer does the POST request automatically.</p>
+        <h3>Example POST Request</h3>
+        <pre><code>curl -X POST http://host:port/answer -H "Content-Type: application/json" -d @data.json</code></pre>
+        <p>The <code>data.json</code> file contains host information including network interface data:</p>
+        <pre><code>{
+    "product": {
+        "fullname": "Proxmox VE",
+        "product": "pve",
+        "enable_btrfs": true
+    },
+    "iso": {
+        "release": "8.2",
+        "isorelease": "2"
+    },
+    "dmi": {
+        "system": {
+            "name": "Standard PC (i440FX + PIIX, 1996)",
+            "serial": "",
+            "uuid": "00000000-0000-0000-0000-000000000000",
+            "sku": ""
+        },
+        "baseboard": {},
+        "chassis": {
+            "asset_tag": "",
+            "serial": ""
+        }
+    },
+    "network_interfaces": [
+        {
+            "link": "ens18",
+            "mac": "01:23:45:67:89:ab"
+        }
+    ]
+}</code></pre>
+        <h3>Example answer file</h3>
+        <p>Answer files are located in the <code>answerFiles</code> folder at the webapp root. The filename is based on the MAC address: <code>01_23_45_67_89_ab.toml</code>. Example format of the file is:</p>
+        <pre><code>[global]
+keyboard = "en-us"
+country = "us"
+fqdn = "pveauto.install"
+mailto = "mail@nobody"
+timezone = "Estonia/Tallinn"
+root_password = "123456"
+root_ssh_keys = []
+
+[network]
+source = "from-dhcp"
+
+[disk-setup]
+filesystem = "ext4"</code></pre>
+    </div>
+</body>
+</html>

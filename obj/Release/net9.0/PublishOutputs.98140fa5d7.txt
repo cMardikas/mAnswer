@@ -1,0 +1,9 @@
+C:\GIT\mAnswer\bin\Release\net9.0\publish\mAnswer.exe
+C:\GIT\mAnswer\bin\Release\net9.0\publish\appsettings.Development.json
+C:\GIT\mAnswer\bin\Release\net9.0\publish\appsettings.json
+C:\GIT\mAnswer\bin\Release\net9.0\publish\mAnswer.dll
+C:\GIT\mAnswer\bin\Release\net9.0\publish\mAnswer.deps.json
+C:\GIT\mAnswer\bin\Release\net9.0\publish\mAnswer.runtimeconfig.json
+C:\GIT\mAnswer\bin\Release\net9.0\publish\mAnswer.pdb
+C:\GIT\mAnswer\bin\Release\net9.0\publish\Newtonsoft.Json.dll
+C:\GIT\mAnswer\bin\Release\net9.0\publish\Tomlyn.dll

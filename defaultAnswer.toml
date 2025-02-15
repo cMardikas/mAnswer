@@ -1,0 +1,14 @@
+[global]
+keyboard = "fi"
+country = "us"
+fqdn = "proxmox.ansible"
+mailto = "proxmox@no.where"
+timezone = "Estonia/Tallinn"
+root_password = "ansible"
+root_ssh_keys = []
+
+[network]
+source = "from-dhcp"
+
+[disk-setup]
+filesystem = "ext4"
