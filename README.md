@@ -5,7 +5,7 @@ A small .NET C# middleware to automate ProxMox installation using answer file ge
 <p>To use this service, send a <code>POST</code> request to the <code>/answer</code> endpoint with a JSON payload. The JSON payload has to include network interface mac. When automated installation is ongoing, Proxmox installer does the POST request automatically.</p>
         <h3>Example POST request</h3>
         <pre><code>curl -X POST http://host:port/answer -H "Content-Type: application/json" -d @data.json</code></pre>
-        <p>The <code>data.json</code> file is a simulated Proxmox POST request. It contains host information including network interface mac address. During automated ProxMox installation, ProxMox combines POST request automatically with installed host config data. For an example:</p>
+        <p>The <code>data.json</code> file is a simulated Proxmox POST request. It contains host information including network interface mac address. During automated Proxmox deployment, POST request is automatically composed using host config data. For an example:</p>
         <pre><code>{
     "product": {
         "fullname": "Proxmox VE",
