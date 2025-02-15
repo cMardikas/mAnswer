@@ -1,14 +1,11 @@
 # mAnswer
 A small .NET C# middleware to automate ProxMox installation using answer file generation based on the host mac address.
 
-##How to Use
-To use this service, send a POST request to the /answer endpoint with a JSON payload. The JSON payload should include network interface data. When automated installation is ongoing, Proxmox installer does the POST request automatically.
-
-##Example POST Request
-curl -X POST http://host:port/answer -H "Content-Type: application/json" -d @data.json
-The data.json file contains host information including network interface data:
-
-{
+<p>To use this service, send a <code>POST</code> request to the <code>/answer</code> endpoint with a JSON payload. The JSON payload should include network interface data. When automated installation is ongoing, Proxmox installer does the POST request automatically.</p>
+        <h3>Example POST Request</h3>
+        <pre><code>curl -X POST http://host:port/answer -H "Content-Type: application/json" -d @data.json</code></pre>
+        <p>The <code>data.json</code> file contains host information including network interface data:</p>
+        <pre><code>{
     "product": {
         "fullname": "Proxmox VE",
         "product": "pve",
@@ -37,11 +34,10 @@ The data.json file contains host information including network interface data:
             "mac": "01:23:45:67:89:ab"
         }
     ]
-}
-##Example answer file
-Answer files are located in the answerFiles folder at the webapp root. The filename is based on the MAC address: 01_23_45_67_89_ab.toml. Example format of the file is:
-
-[global]
+}</code></pre>
+        <h3>Example answer file</h3>
+        <p>Answer files are located in the <code>answerFiles</code> folder at the webapp root. The filename is based on the MAC address: <code>01_23_45_67_89_ab.toml</code>. Example format of the file is:</p>
+        <pre><code>[global]
 keyboard = "en-us"
 country = "us"
 fqdn = "pveauto.install"
@@ -54,4 +50,4 @@ root_ssh_keys = []
 source = "from-dhcp"
 
 [disk-setup]
-filesystem = "ext4"
+filesystem = "ext4"</code></pre>
