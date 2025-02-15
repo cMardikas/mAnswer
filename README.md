@@ -1,6 +1,7 @@
 # mAnswer
 A small .NET C# middleware to automate ProxMox installation using answer file generation based on the host mac address.
 
+## How-to
 <p>To use this service, send a <code>POST</code> request to the <code>/answer</code> endpoint with a JSON payload. The JSON payload should include network interface data. When automated installation is ongoing, Proxmox installer does the POST request automatically.</p>
         <h3>Example POST Request</h3>
         <pre><code>curl -X POST http://host:port/answer -H "Content-Type: application/json" -d @data.json</code></pre>
